@@ -14,7 +14,7 @@
                 <order_status>pending_payment</order_status>
                 <instructions>Instruction.</instructions>
                 <payment_action>true</payment_action>
-                <model>PagarMe\CreditCard\Model\PagarmeCreditCard</model>
+                <model>PagarMe\CreditCard\Model\PagarMeCreditCard</model>
                 <group>offline</group>
             </pagarmecreditcard>
             <!-- payment-config -->

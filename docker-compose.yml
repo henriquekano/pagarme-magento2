@@ -9,7 +9,7 @@ services:
     env_file:
       - .env
     volumes:
-      - .:/var/www/html/app/code/PagarMe/Magneto
+      - ./code/PagarMe/CreditCard:/var/www/html/app/code/PagarMe/CreditCard
   db:
     image: mysql:5.6.23
     volumes:
