@@ -252,7 +252,7 @@
             <!-- /ko -->
           </fieldset>
         </div>
-        <form class="form" id="pay" action="#" name="pay" method="post" >
+        <form class="form" id="pagarmecreditcard-place-order" action="#" name="pay" method="post" >
           <input type="hidden"
             data-encrypted-name="cardHash"
             data-bind="attr: {
@@ -260,6 +260,7 @@
                 'data-container': getCode() + 'cc-cardhash'
               },
               value: cardHash"/>
+
         </form>
         <div class="checkout-agreements-block">
             <!-- ko foreach: $parent.getRegion('before-place-order') -->
@@ -271,7 +272,13 @@
                 <button id="place-order-button" class="action primary checkout"
                         type="submit"
                         data-bind="
-                        click: placeOrder,
+                        click: function() {
+                          createCardHash()
+                          .then(function() {
+                            placeOrder()
+                          })
+                          .catch(console.log)
+                        },
                         attr: {
                           title: $t('Place Order')
                         },
