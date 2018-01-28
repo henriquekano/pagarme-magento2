@@ -6,29 +6,70 @@
 /*global define*/
 define(
     [
-        'Magento_Payment/js/view/payment/cc-form',
-        'jquery',
-        'Magento_Checkout/js/action/place-order',
-        'Magento_Checkout/js/model/full-screen-loader',
-        'Magento_Checkout/js/model/payment/additional-validators',
-        'Magento_Payment/js/model/credit-card-validation/validator'
+      'Magento_Payment/js/view/payment/cc-form',
+      'ko',
+      'jquery',
+      'pagarme',
     ],
-    function (Component, $) {
-        'use strict';
-
-        return Component.extend({
-            defaults: {
-                template: 'PagarMe_CreditCard/payment/pagarmecreditcard'
-            },
-            isActive: function() {
-              return true
-            },
-            getCode: function() {
-              return 'pagarmecreditcard'
-            },
-          isShowLegend: () => {
-            true
+    function (Component, ko, $, pagarme) {
+      'use strict'
+      
+      return Component.extend({
+        defaults: {
+          template: 'PagarMe_CreditCard/payment/pagarmecreditcard',
+          creditCardHoldername: ko.observable(),
+          cardHash: ko.observable()
+        },
+        pagarmeClient: function() {
+          return pagarme.client.connect({
+            encryption_key: this.encryptionKey()
+          })
+        },
+        encryptionKey: function() {
+          return window.checkoutConfig.payment.pagarme.encryptionKey
+        },
+        isActive: function() {
+          return true
+        },
+        getCode: function() {
+          return 'pagarmecreditcard'
+        },
+        isShowLegend: function() {
+          return true
+        },
+        //Deprecated
+        hasSsCardType: function() {
+          return false
+        },
+        createCardHash: function() {
+          var cardExpirationDate = this.formatExpirationDate(
+            this.creditCardExpMonth(), this.creditCardExpYear()
+          )
+          var cardHashPayload = {
+            card_number: this.creditCardNumber(),
+            card_expiration_date: cardExpirationDate,
+            card_cvv: this.creditCardVerificationNumber(),
+            card_holder_name: this.creditCardHoldername()
           }
-        });
+
+          return this.pagarmeClient()
+            .then(client => client.security.encrypt(cardHashPayload))
+            .then(card_hash => {
+              this.cardHash(card_hash)
+            })
+        },
+        formatExpirationDate: function(monthInteger, yearFourDigits) {
+          var month
+          if(parseInt(monthInteger) < 10) {
+            month = "0" + monthInteger
+          } else {
+            month = monthInteger
+          }
+
+          var year = String(yearFourDigits).substr(2)
+
+          return month + year
+        }
+      })
     }
-);
+)
