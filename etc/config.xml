@@ -1,17 +1,24 @@
-<?xml version="1.0" ?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
-    <default>
-        <payment>
-            <pagarme_creditcard>
-                <active>1</active>
-                <model>PagarMe\Magneto\Model\Payment\CreditCard</model>
-                <order_status>pending</order_status>
-                <title>Creditcard</title>
-                <allowspecific>0</allowspecific>
-                <payment_action>authorize</payment_action>
-            </pagarme_creditcard>
-        </payment>
-    </default>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+  <default>
+    <payment>
+      <pagarme_creditcard>
+        <model>BraintreeFacade</model>
+        <title>Credit Card (Braintree)</title>
+        <payment_action>authorize</payment_action>
+        <active>0</active>
+        <is_gateway>1</is_gateway>
+        <can_use_checkout>1</can_use_checkout>
+        <can_authorize>0</can_authorize>
+        <can_capture>0</can_capture>
+        <can_refund>0</can_refund>
+        <can_void>0</can_void>
+        <can_cancel>0</can_cancel>
+        <cctypes>AE,VI,MC,DI,JCB,CUP,DN,MI</cctypes>
+        <useccv>1</useccv>
+        <order_status>processing</order_status>
+        <privateInfoKeys>avsPostalCodeResponseCode,avsStreetAddressResponseCode,cvvResponseCode,processorAuthorizationCode,processorResponseCode,processorResponseText,liabilityShifted,liabilityShiftPossible,riskDataId,riskDataDecision</privateInfoKeys>
+        <paymentInfoKeys>cc_type,cc_number,avsPostalCodeResponseCode,avsStreetAddressResponseCode,cvvResponseCode,processorAuthorizationCode,processorResponseCode,processorResponseText,liabilityShifted,liabilityShiftPossible,riskDataId,riskDataDecision</paymentInfoKeys>
+      </pagarme_creditcard>
+    </payment>
+  </default>
 </config>
-

@@ -6,22 +6,29 @@
 /*global define*/
 define(
     [
-        'Magento_Checkout/js/view/payment/default'
+        'Magento_Payment/js/view/payment/cc-form',
+        'jquery',
+        'Magento_Checkout/js/action/place-order',
+        'Magento_Checkout/js/model/full-screen-loader',
+        'Magento_Checkout/js/model/payment/additional-validators',
+        'Magento_Payment/js/model/credit-card-validation/validator'
     ],
-    function (Component) {
+    function (Component, $) {
         'use strict';
 
         return Component.extend({
             defaults: {
                 template: 'PagarMe_CreditCard/payment/pagarmecreditcard'
             },
-
-            /** Returns send check to info */
-            getMailingAddress: function() {
-                return window.checkoutConfig.payment.checkmo.mailingAddress;
+            isActive: function() {
+              return true
             },
-
-           
+            getCode: function() {
+              return 'pagarmecreditcard'
+            },
+          isShowLegend: () => {
+            true
+          }
         });
     }
 );

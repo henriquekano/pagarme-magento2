@@ -10,15 +10,17 @@ namespace PagarMe\CreditCard\Model;
 /**
  * Pay In Store payment method model
  */
-class PagarmeCreditCard extends \Magento\Payment\Model\Method\AbstractMethod
+class PagarMeCreditCard extends \Magento\Payment\Model\Method\AbstractMethod
 {
+
+    const METHOD_CODE = 'pagarmecreditcard';
 
     /**
      * Payment code
      *
      * @var string
      */
-    protected $_code = 'pagarmecreditcard';
+    protected $_code = self::METHOD_CODE;
 
     /**
      * Availability option
