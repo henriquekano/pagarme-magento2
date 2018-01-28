@@ -20,6 +20,15 @@ define(
           creditCardHoldername: ko.observable(),
           cardHash: ko.observable()
         },
+        getData: function() {
+          var cardHash = this.cardHash()
+          return {
+            'method': this.item.method,
+            additional_data: {
+              card_hash: cardHash
+            }
+          }
+        },
         pagarmeClient: function() {
           return pagarme.client.connect({
             encryption_key: this.encryptionKey()
