@@ -12,7 +12,8 @@ define(
     ],
     function (Component, $, pagarme) {
       'use strict';
-
+      
+      console.log(window.checkoutConfig.payment.pagarme)
       return Component.extend({
         defaults: {
           template: 'PagarMe_CreditCard/payment/pagarmecreditcard',
@@ -31,6 +32,9 @@ define(
         //Deprecated
         hasSsCardType: function() {
           return false
+        },
+        createCardHash: function() {
+          
         }
       })
     }
