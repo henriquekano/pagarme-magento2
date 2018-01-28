@@ -8,15 +8,12 @@ define(
     [
       'Magento_Payment/js/view/payment/cc-form',
       'jquery',
-      'Magento_Checkout/js/action/place-order',
-      'Magento_Checkout/js/model/full-screen-loader',
-      'Magento_Checkout/js/model/payment/additional-validators',
-      'Magento_Payment/js/model/credit-card-validation/validator',
+      'pagarme',
     ],
-    function (Component, $) {
+    function (Component, $, pagarme) {
       'use strict';
 
-      var ey = Component.extend({
+      return Component.extend({
         defaults: {
           template: 'PagarMe_CreditCard/payment/pagarmecreditcard',
           creditCardHoldername: '',
@@ -35,8 +32,6 @@ define(
         hasSsCardType: function() {
           return false
         }
-      });
-      console.log(ey)
-      return ey
+      })
     }
-);
+)
