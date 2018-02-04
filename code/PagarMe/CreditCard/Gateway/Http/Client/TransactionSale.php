@@ -22,8 +22,12 @@ class TransactionSale implements ClientInterface
     $this->loggerInterface = $loggerInterface;
   }
 
-  public public function placeRequest(TransferInterface $transferObject)
+  public function placeRequest(TransferInterface $transferObject)
   {
+    var_dump('tx sale');
+    var_dump($transferObject);
+    die();
+
     $data = $transferObject->getBody();
     $log = [
       'request' => $data,

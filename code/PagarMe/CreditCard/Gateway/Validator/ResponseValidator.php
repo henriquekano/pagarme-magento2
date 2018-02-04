@@ -2,7 +2,7 @@
 
 namespace PagarMe\CreditCard\Gateway\Validator;
 
-use \Magento\Payment\Gateway\Validator\AbstractValidator;
+use Magento\Payment\Gateway\Validator\AbstractValidator;
 
 /**
  *Response Validator is a component of the Magento payment provider gateway that performs gateway response verification. This may include low level data formatting, security verification, and even execution of some business logic required by the store configuration.

@@ -3,6 +3,8 @@
 namespace PagarMe\CreditCard\Observer;
 
 use \Magento\Quote\Api\Data\PaymentInterface;
+use \Magento\Payment\Observer\AbstractDataAssignObserver;
+use \Magento\Framework\Event\Observer;
 
 class PassFrontendDataToBackendObserver extends AbstractDataAssignObserver
 {
@@ -14,6 +16,7 @@ class PassFrontendDataToBackendObserver extends AbstractDataAssignObserver
 
     public function execute(Observer $observer)
     {
+
         $data = $this->readDataArgument($observer);
 
         $additionalData = $data->getData(PaymentInterface::KEY_ADDITIONAL_DATA);

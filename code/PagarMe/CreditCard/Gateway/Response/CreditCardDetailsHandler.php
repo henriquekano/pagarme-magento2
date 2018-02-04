@@ -22,5 +22,8 @@ class CreditCardDetailsHandler implements HandlerInterface
   
   public function handle(array $handlingSubject, array $response)
   {
+    var_dump('ccDetail handler');
+    var_dump($handlingSubject);
+    die();
   }
 }

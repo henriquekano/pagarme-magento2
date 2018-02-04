@@ -10,18 +10,17 @@ class PaymentDataBuilder implements BuilderInterface
 {
   use Formatter;
   
-  public function __construct(Config $config, SubjectReader $subjectReader)
+  public function __construct()
   {
-    $this->config = $config;
-    $this->subjectReader = $subjectReader;
   }
 
   public function build(array $buildSubject)
   {
+    var_dump($buildSubject);
+    var_dump('builder');
+    die();
     $result = [
-      'card_hash' => $payment->getAdditionalInformation(
-        PassFrontendDataToBackendObserver::FRONTEND_CARD_HASH_IDENTIFIER_KEY
-      )
+      'card_hash' => ''
     ];
 
     return $result;

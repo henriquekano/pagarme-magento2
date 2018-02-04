@@ -8,6 +8,8 @@ use \Magento\Framework\Encryption\EncryptorInterface;
 
 class ConfigProvider implements ConfigProviderInterface
 {
+
+  const CODE = 'pagarmecreditcard';
   protected $scopeConfig;
   protected $encryptor;
 
