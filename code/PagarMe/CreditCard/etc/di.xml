@@ -48,23 +48,33 @@
     <arguments>
         <argument name="validators" xsi:type="array">
             <item name="country" xsi:type="string">PagarMe\CreditCard\Gateway\Validator\CountryValidator</item>
-            <item name="country" xsi:type="string">PagarMe\CreditCard\Gateway\Validator\CurrencyValidator</item>
+            <item name="currency" xsi:type="string">PagarMe\CreditCard\Gateway\Validator\CurrencyValidator</item>
         </argument>
+    </arguments>
+  </virtualType>
+  <virtualType name="PagarMeCreditCardGatewayConfig" type="Magento\Payment\Gateway\Config\Config">
+    <arguments>
+        <argument name="methodCode" xsi:type="const">PagarMe\CreditCard\Model\Ui\ConfigProvider::CODE</argument>
+    </arguments>
+  </virtualType>
+  <virtualType name="PagarMeCreditCardConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+    <arguments>
+        <argument name="configInterface" xsi:type="object">PagarMeCreditCardGatewayConfig</argument>
     </arguments>
   </virtualType>
   <virtualType name="PagarMeCreditCardValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
     <arguments>
         <argument name="handlers" xsi:type="array">
-            <item name="default" xsi:type="string">Magento\Payment\Gateway\Config\Config</item>
+            <item name="default" xsi:type="string">PagarMeCreditCardConfigValueHandler</item>
             <item name="can_void" xsi:type="string">PagarMe\CreditCard\Gateway\Config\CanVoidHandler</item>
-            <item name="can_cancel" xsi:type="string">PagarMe\CreditCard\Gateway\Config\CanVoidHandler</item>
+            <item name="can_cancel" xsi:type="string">PagarMe\CreditCard\Gateway\Config\CanCancelHandler</item>
         </argument>
     </arguments>
   </virtualType>
   <virtualType name="PagarMeCreditCardFacade" type="Magento\Payment\Model\Method\Adapter">
     <arguments>
         <argument name="code" xsi:type="const">PagarMe\CreditCard\Model\Ui\ConfigProvider::CODE</argument>
-        <argument name="formBlockType" xsi:type="string">PagarMe\CreditCard\Block\Form</argument>
+        <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
         <argument name="infoBlockType" xsi:type="string">Magento\Payment\Block\ConfigurableInfo</argument>
         <argument name="valueHandlerPool" xsi:type="object">PagarMeCreditCardValueHandlerPool</argument>
         <argument name="validatorPool" xsi:type="object">PagarMeCreditCardValidatorPool</argument>

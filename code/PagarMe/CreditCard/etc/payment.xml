@@ -8,8 +8,8 @@
 <payment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="../../../Magento/Payment/etc/payment.xsd">
     <groups>
-        <group id="offline">
-            <label>Offline Payment Methods</label>
+        <group id="online">
+            <label>Online Payment Methods</label>
         </group>
     </groups>
     <methods>

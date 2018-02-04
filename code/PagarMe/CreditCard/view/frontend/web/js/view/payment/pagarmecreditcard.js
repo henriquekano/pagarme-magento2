@@ -14,6 +14,7 @@ define(
       rendererList
       ) {
       'use strict';
+      console.log("yaaaaaaaaaaaay");
       rendererList.push(
           {
             type: 'pagarmecreditcard',

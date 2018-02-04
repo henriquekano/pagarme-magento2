@@ -9,7 +9,7 @@
   <type name="Magento\Payment\Model\CcGenericConfigProvider">
     <arguments>
       <argument name="methodCodes" xsi:type="array">
-        <item name="ccform" xsi:type="const">PagarMe\CreditCard\Model\PagarMeCreditCard::METHOD_CODE</item>
+        <item name="ccform" xsi:type="const">PagarMe\CreditCard\Model\Ui\ConfigProvider::CODE</item>
       </argument>
     </arguments>
   </type>

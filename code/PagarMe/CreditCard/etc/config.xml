@@ -13,8 +13,14 @@
                 <title>PagarmeCreditCard</title>
                 <order_status>pending_payment</order_status>
                 <instructions>Instruction.</instructions>
-                <payment_action>true</payment_action>
-                <group>offline</group>
+                <is_gateway>1</is_gateway>
+                <can_order>1</can_order>
+                <group>online</group>
+                <can_authorize>1</can_authorize>
+                <can_use_checkout>true</can_use_checkout>
+                <model>PagarMeCreditCardFacade</model>
+                <payment_action>authorize_capture</payment_action>
+                
             </pagarmecreditcard>
         </payment>
     </default>

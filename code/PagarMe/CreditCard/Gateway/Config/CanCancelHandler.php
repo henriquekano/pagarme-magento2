@@ -3,7 +3,7 @@
 namespace PagarMe\CreditCard\Gateway\Config;
 use Magento\Payment\Gateway\Config\ValueHandlerInterface;
 
-class CanVoidHandler implements ValueHandlerInterface
+class CanCancelHandler implements ValueHandlerInterface
 {
 
   public function __construct() {}
