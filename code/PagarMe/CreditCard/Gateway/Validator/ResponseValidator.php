@@ -11,6 +11,9 @@ class ResponseValidator extends AbstractValidator
 {
   public function validate(array $validationSubject)
   {
+    var_dump('response validator');
+    var_dump($validationSubject);
+    die();
    $statements = [
      [
        true,

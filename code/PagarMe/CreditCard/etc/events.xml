@@ -1,4 +1,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+  <!-- From the docs: you need a observer to retrieve additional data from payment form and store it in the payment additional information -->
+  <!-- The event to subscribe should follow the pattern: payment_method_assign_data_(payment_code) -->
+  <!-- To intercept all additional datas from all payments: payment_method_assign_data -->
   <event name="payment_method_assign_data_pagarmecreditcard">
     <observer name="pagarmecreditcard_data_assign" instance="PagarMe\CreditCard\Observer\PassFrontendDataToBackendObserver" />
   </event>

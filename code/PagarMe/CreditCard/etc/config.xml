@@ -17,10 +17,12 @@
                 <can_order>1</can_order>
                 <group>online</group>
                 <can_authorize>1</can_authorize>
-                <can_use_checkout>true</can_use_checkout>
+                <can_use_checkout>1</can_use_checkout>
                 <model>PagarMeCreditCardFacade</model>
                 <payment_action>authorize_capture</payment_action>
-                
+                <currency>BRL</currency>
+                <paymentInfoKeys>card_hash</paymentInfoKeys>
+                <privateInfoKeys>card_hash</privateInfoKeys>
             </pagarmecreditcard>
         </payment>
     </default>
