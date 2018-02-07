@@ -19,7 +19,6 @@ class TransferFactory implements TransferFactoryInterface
   public function create(array $request)
   {
     var_dump('transfer factory');
-    var_dump($request);
     die();    
     return $this->transferBuilder
       ->setMethod(Curl::POST)

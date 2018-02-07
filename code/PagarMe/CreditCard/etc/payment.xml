@@ -8,7 +8,7 @@
 <payment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="../../../Magento/Payment/etc/payment.xsd">
     <groups>
-        <group id="online">
+        <group id="pagarme">
             <label>Online Payment Methods</label>
         </group>
     </groups>

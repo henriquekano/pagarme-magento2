@@ -13,7 +13,6 @@ class AuthorizeCommand implements   CommandInterface
   public function execute(array $commandSubject)
   {
     var_dump('Authorize command');
-    var_dump($commandSubject);
     die();
   }
 }

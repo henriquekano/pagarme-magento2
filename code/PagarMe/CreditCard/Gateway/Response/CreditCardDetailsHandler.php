@@ -1,6 +1,6 @@
 <?php
 
-namespace Magento\Braintree\Gateway\Response;
+namespace PagarMe\CreditCard\Gateway\Response;
 
 use Magento\Payment\Gateway\Response\HandlerInterface;
 use Magento\Sales\Api\Data\OrderPaymentInterface;
@@ -23,7 +23,6 @@ class CreditCardDetailsHandler implements HandlerInterface
   public function handle(array $handlingSubject, array $response)
   {
     var_dump('ccDetail handler');
-    var_dump($handlingSubject);
     die();
   }
 }
